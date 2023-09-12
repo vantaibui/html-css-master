@@ -1,18 +1,6 @@
-mixin tourItem
-    .tour
-        .tour-top
-            img(src="./assets/images/image-1.jpg", alt="img").tour-image
-            span.tour-price From $40
-        .tour-content
-            h3.tour-title Thailands Ayutthaya Temples Cruise from Bangkok
-            .tour-rating
-                .tour-review
-                    .tour-star
-                        img(src="./assets/images/star.svg", alt="tour-star")
-                    .tour-review-count
-                        span 4.8 (12 reviews)
-                span.tour-duration Duration: 9 hours
-            a(href="https://facebook.com", target="_blank", rel="nooper noreferer").tour-button Tours Price $61
+include ./pug/tour-item.pug
+include ./pug/popular-item.pug
+
 doctype html
 html(lang="en")
     head
@@ -22,14 +10,92 @@ html(lang="en")
         link(rel="preconnect", href="https://fonts.googleapis.com")
         link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
         link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap")
-        link(rel="stylesheet", href="./assets/css/style.css")
+        //- link(rel="stylesheet", href="./assets/css/tour.css")
+        //- link(rel="stylesheet", href="./assets/css/popular.css")
+        link(rel="stylesheet", href="./assets/css/main.css")
     body 
-        .tour-list-container
-            .tour-list
-                +tourItem
-                +tourItem
-                +tourItem
-                +tourItem
-                +tourItem
-                +tourItem
-                +tourItem
+        header 
+        main
+            section.top-tours 
+                .container
+                    h2.heading Top Bangkok Tours
+                    .tour-list
+                        +tourItem
+                        +tourItem
+                        +tourItem
+                        +tourItem
+                        +tourItem
+                        +tourItem
+                        +tourItem 
+            section.popular 
+                .container 
+                    h2.heading Popular things to do in Bangkok
+                    .popular-list 
+                        +popularItem
+                        +popularItem
+                        +popularItem
+                        +popularItem  
+            section.gem 
+                .container 
+                    h2.heading Hidden gems in Bangkok
+                        .gem-list 
+                            each val in ["https://plus.unsplash.com/premium_photo-1676139860466-8b8f71c0a737?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80", "https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2576&q=80", "https://images.unsplash.com/photo-1561319830-9b94ae94ddb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2535&q=80", "https://images.unsplash.com/photo-1631004150792-c24d0a04693c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80", "https://images.unsplash.com/photo-1655802521234-e3de6c4fd101?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"]
+                                .gem-item
+                                    img(src=val, alt="image-gem")
+            section.diamond
+                .container 
+                    h2.heading Hidden gems in Bangkok
+                    .diamond-list 
+                            each val in ["https://plus.unsplash.com/premium_photo-1676139860466-8b8f71c0a737?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80", "https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2576&q=80", "https://images.unsplash.com/photo-1561319830-9b94ae94ddb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2535&q=80", "https://images.unsplash.com/photo-1631004150792-c24d0a04693c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80", "https://images.unsplash.com/photo-1655802521234-e3de6c4fd101?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"]
+                                .diamond-item
+                                    .diamond-image 
+                                        img(src=val, alt="image-diamond")
+                                        .diamond-content
+                                            h3.diamond-title Bangkok Trip
+                                            time.diamond-time 27 Sep, 2020
+                a(href="https://google.com.vn").button.diamond-all Explore all
+        footer.footer
+            .container.footer-container 
+                .footer-top 
+                    .footer-columns 
+                        .footer-column 
+                            a.footer-logo(href="#") Airtrav
+                                img(src="./assets/images/logo-icon.jpg", alt="Airtrav")
+                            p.footer-description Similarly, a loan taken out to buy a car may be secured by the car. The duration of the loan.
+                            form.subscribe 
+                                input(type="email", placeholder="Enter your email").subscribe-email
+                                button.subscribe-button
+                                    img(srcSet="./assets/images/arrow-right-icon.svg 2x", alt="arrow-right-icon")
+                        .footer-column
+                            h4.footer-heading Service 
+                            ul.footer-links 
+                                each val in ["Trip Planner", "Tour Planning", "Tour Guide", "Tour Package", "Tour advice"]
+                                    li.footer-item 
+                                        a.footer-link(href="#")=val
+                        .footer-column
+                            h4.footer-heading Support 
+                            ul.footer-links 
+                                each val in ["Account", "Legal", "Contact", "Terms & Condition", "Privacy Policy"]
+                                    li.footer-item 
+                                        a.footer-link(href="#")=val
+                        .footer-column
+                            h4.footer-heading Business 
+                            ul.footer-links 
+                                each val in ["Success", "About Locato", "Blog", "Information", "Travel Guide"]
+                                    li.footer-item 
+                                        a.footer-link(href="#")=val
+                .footer-bottom
+                    p.footer-copyright Copyright© 2023 UIHUT LLC. All rights reserved
+                    .footer-socials 
+                        .footer-social-item 
+                            a.footer-social-link(href="")
+                                img(src="./assets/images/facebook-icon.svg", alt="facebook")
+                        .footer-social-item 
+                            a.footer-social-link(href="")
+                                img(src="./assets/images/linkedin-icon.svg", alt="linkedin")
+                        .footer-social-item 
+                            a.footer-social-link(href="")
+                                img(src="./assets/images/twitter-icon.svg", alt="twitter")
+                        .footer-social-item 
+                            a.footer-social-link(href="")
+                                img(src="./assets/images/instragram-icon.svg", alt="instragram")
